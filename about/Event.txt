@@ -1,0 +1,6 @@
+This is an event plan for you to use on the go and from home. Let us Keep track of the most important things in your life so you can focus on your other task. 
+
+this will be done in the mern stack
+
+With this you will be able to show, add ,edit and delete events.
+date and time are required and must how validations for them in the create and update.
