@@ -1,11 +1,10 @@
 import React, {useEffect} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
-
-
+import {Link, useNavigate} from 'react-router-dom';
 
 const ViewList = (props) =>{
-    const {eventList, setEventList} = props;
+    const {eventList, setEventList, removeFromDom} = props;
+    const navigator = useNavigate()
     useEffect(() => {
         axios.get("http://localhost:8000/api/events")
         .then((res) => {
@@ -13,12 +12,21 @@ const ViewList = (props) =>{
             console.log(res.data);
         })
         .catch((err) => console.log(err));
-    },[])
+    },[setEventList])
+
+    const deleteEvent = (_id) => 
+    axios.delete('http://localhost:8000/api/events/' + _id)
+    .then(res => {
+    removeFromDom(_id)
+    navigator("/")
+    })
 
     return (
-            <div >
-                <div class="nes-table-responsive">
-            <table class="nes-table is-bordered is-centered">
+        
+        <div>
+                <Link className='nes-btn is-primary ' to={`/`}>GO HOME</Link>
+                <div class="nes-table-responsive is-centered">
+            <table class=" nes-table is-bordered is-dark">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -32,7 +40,9 @@ const ViewList = (props) =>{
                             <td> {events.title}</td>
                             <td> {events.place} </td>
                         <td>
-                            <Link to={`/events/update/${events._id}`}>Edit</Link>
+                            <Link className='nes-btn is-success' to={`/events/update/${events._id}`}>Edit</Link>
+                            <button className='nes-btn is-error' onClick={(e) => deleteEvent(events._id)}>Delete</button>
+                            <Link className='nes-btn is-primary' to={`/`}>GO HOME</Link>
                         </td>
                         </tr>
                         })
