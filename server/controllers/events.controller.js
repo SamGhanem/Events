@@ -6,7 +6,7 @@ module.exports.findAllEvents = (req, res) => {
             res.json({events: allDaJEvents })
         })
         .catch((err) => {
-            res.json({ message: 'Something went wrong in the find all', error: err })
+            res.status(400).json({ message: 'Something went wrong in the find all', error: err })
         });
 }
 
@@ -16,7 +16,7 @@ Event.findOne({ _id: req.params.id })
             res.json({events: oneSingleEvents })
         })
         .catch((err) => {
-            res.json({ message: 'Something went wrong in the find one', error: err })
+            res.status(400).json({ message: 'Something went wrong in the find one', error: err })
         });}
 
 module.exports.createNewEvents = (req, res) => {
@@ -47,5 +47,5 @@ Event.deleteOne({ _id: req.params.id })
             res.json({ result: result })
         })
         .catch((err) => {
-            res.json({ message: 'Something went wrong in the deleting ', error: err })
+            res.status(400).json({ message: 'Something went wrong in the deleting ', error: err })
         });}

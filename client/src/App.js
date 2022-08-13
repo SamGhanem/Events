@@ -2,6 +2,8 @@ import './App.css';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Home from './views/home';
 import EventForm from './components/form';
+import ViewList from './components/displayAll';
+import Update from './components/update';
 import './cal.css';
 // script.js
 import "nes.css/css/nes.min.css";
@@ -15,8 +17,8 @@ function App() {
       <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home eventList={eventList} setEventList={setEventList} />}/>
-            {/* <Route path='/events/create' element={<EventForm eventList={eventList} setEventList={setEventList}/>}/> */}
-          </Routes>
+            <Route path='/events/viewall' element={<ViewList eventList={eventList} setEventList={setEventList}/> } />
+            <Route path='/events/update/:id'  element={<Update/>}/>          </Routes>
       </BrowserRouter>
     </div>
   );

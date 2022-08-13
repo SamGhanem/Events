@@ -10,6 +10,7 @@ import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+// import App from "../components/cal-works";
 // import moment from "moment";
 
 
@@ -89,7 +90,7 @@ const endDate =(calEndData) =>{
                         <DatePicker placeholderText="End Date" selected={endDay.end} onChange={(end) =>  endDate(end)} />
                     </div>
                     <input type='submit' value='add the event'  onClick={submitHandler}/>
-                        
+                        <Link to={`/events/viewall`}>View all events</Link>
                     
                 </div>
             </form>
