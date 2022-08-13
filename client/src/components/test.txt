@@ -1,0 +1,84 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Calendar from 'react-calendar';
+import {Link} from 'react-router-dom';
+
+
+function Home({eventList,setEventList}) {
+// const checkday = (date, view) => {
+//     if(view === 'month' && date.getDay() === 3  ){
+//         return 'saturday'
+//     }
+//     return  null
+
+// }
+const [value, onChange] = useState(new Date());
+const today = new Date();
+today.setDate(today.getDate() +1)
+    useEffect(()=>{
+    	axios.get("http://localhost:8000/api/events")
+    	.then((res)=>{
+	    console.log(res.data);
+        setEventList(res.data.events);
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+    }, [setEventList]);
+
+return (
+    <div>
+        <Link to={`/events/create`}>Add event </Link>
+    {/* {
+        eventList.map((events, i) => (
+            <Calendar className={events?.event ? 'hasEvent': ''} tileClassName={({ date, view }) => checkday(date,view)} onClickDay={(value,event) =>{
+
+            }} onChange={onChange} value={[value]}>
+                
+            </Calendar>
+        ))
+    } */}
+
+    <div>
+        <Calendar onChange={onChange} value={value} />
+    </div>
+    </div>
+);
+}
+export default Home;
+
+
+
+
+// const localizer = (momentLocalizer)(moment);
+// const DragAndDropCalendar = withDragAndDrop(Calendar);
+
+/* const localizer = dateFnsLocalizer({
+    format,
+    parse,
+    startOfWeek,
+    getDay,   
+    locales,
+}); */
+
+// const events = [
+//     {
+//         title: "Big Meeting",
+//         allDay: true,
+//         start: new Date(2022, 8, 10),
+//         end: new Date(2022, 8, 10),
+//     },
+//     {
+//         title: "Vacation",
+//         start: new Date(2022, 8, 17),
+//         end: new Date(2022, 8, 20),
+//     },
+//     {
+//         title: "Conference",
+//         start: new Date(2022, 8, 20),
+//         end: new Date(2022, 8, 23),
+//     },
+// ];
+// function handleAddEvent() {
+//     setAllEvents([...allEvents, newEvent]);
+// }
