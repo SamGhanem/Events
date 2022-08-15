@@ -80,6 +80,7 @@ const endDate =(calEndData) =>{
                     <div>
                         {errors.title && <span className="nes-text is-error nes-balloon from-left is-dark">{errors.title.message}</span>}
                         <input type="text" className='nes-input is-dark' placeholder="Add Title" style={{ width: "20%", marginRight: "10px" }} value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <i class="nes-icon is-large heart"></i>
                         <input type="text" className='nes-input is-dark' placeholder="Add Place" style={{ width: "20%", marginRight: "10px" }} value={place} onChange={(e) => setPlace(e.target.value)} />
                     </div>
                     <div>
@@ -88,8 +89,9 @@ const endDate =(calEndData) =>{
                         {errors.end && <span className="nes-text is-error nes-balloon from-left is-dark">{errors.end.message}</span>}
                         <DatePicker placeholderText="End Date" selected={endDay.end} onChange={(end) =>  endDate(end)} />
                     </div>
-                    <input className='nes-btn is-success' type='submit' value='add the event'  onClick={submitHandler}/>
-                        <Link className='nes-btn is-primary' to={`/events/viewall`}>View all events</Link>
+                    <input className='nes-btn is-success' type='submit' value='Add the event'  onClick={submitHandler}/>
+                    <i class="nes-icon is-large star"></i>
+                    <Link className='nes-btn is-primary' to={`/events/viewall`}>View all events</Link>
                     
                 </div>
                 <i class="nes-mario"></i>
