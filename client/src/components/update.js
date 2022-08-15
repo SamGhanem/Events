@@ -26,14 +26,16 @@ const Update = (props) => {
         })
             .then(res => {
                 console.log(res);
-                navigate("/"); 
+                navigate("/events/viewall"); 
             })
             .catch(err => setErrors(err.response.data.error.errors))
     }
 
     useEffect(() => {
+        console.log(id)
         axios.get('http://localhost:8000/api/events/' + id)
             .then(res => {
+                console.log(res.data)
                 setStartDay({start:new Date(res.data.events.start)});
                 setTitle(res.data.events.title);
                 setEndDay({end:new Date( res.data.events.end)});
@@ -45,7 +47,7 @@ const Update = (props) => {
     const endDate =(calEndData) =>{
         setEndDay({ ...endDay, end:calEndData })
         const date = new Date(calEndData)
-        date.setDate(date.getDate() +1)
+        date.setDate(date.getDate() )
         setTrueEndDay(date);
     }
         return (
@@ -57,7 +59,7 @@ const Update = (props) => {
                     <div>
                         {errors.title && <span className="nes-text is-error nes-balloon from-left is-dark">{errors.title.message}</span>}
                         <input type="text"  style={{ width: "20%", marginRight: "10px" }} value={title} onChange={(e) => setTitle(e.target.value)} />
-                        <input type="text" placeholder={place._id} style={{ width: "20%", marginRight: "10px" }} value={place} onChange={(e) => setPlace(e.target.value)} />
+                        <input type="text" placeholder={place.id} style={{ width: "20%", marginRight: "10px" }} value={place} onChange={(e) => setPlace(e.target.value)} />
                     </div>
                     <div>
                         {errors.start && <span className="nes-text is-error nes-balloon from-left is-dark">{errors.start.message}</span>}
@@ -65,9 +67,10 @@ const Update = (props) => {
                         {errors.end && <span className="nes-text is-error nes-balloon from-left is-dark">{errors.end.message}</span>}
                         <DatePicker  selected={endDay.end} onChange={(end) =>  endDate(end)} />
                     </div>
-                    <input type='submit' value='Edit event'/>
+                    <input className='nes-btn is-success' type='submit' value='Edit event'/>
+                    <Link className='nes-btn is-warning' to={`/events/viewall`}>View all events</Link>
                 </div>
-                    <Link to={`/`}>GO HOME</Link>
+                    <Link className='nes-btn is-primary' to={`/`}>GO HOME</Link>
             </form>
             </div>
         )

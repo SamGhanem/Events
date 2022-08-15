@@ -1,7 +1,6 @@
 import './App.css';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Home from './views/home';
-import EventForm from './components/form';
 import ViewList from './components/displayAll';
 import Update from './components/update';
 import './cal.css';
@@ -21,7 +20,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home eventList={eventList} setEventList={setEventList} />}/>
             <Route path='/events/viewall' element={<ViewList removeFromDom={removeFromDom} eventList={eventList} setEventList={setEventList}/> } />
-            <Route path='/events/update/:_id'  element={<Update/>} /></Routes>
+            <Route path='/events/update/:id'   element={<Update/>} /></Routes>
       </BrowserRouter>
     </div>
   );

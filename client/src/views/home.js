@@ -4,7 +4,6 @@ import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {useNavigate} from "react-router-dom";
 import {Link} from 'react-router-dom';
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -61,7 +60,7 @@ useEffect(() => {
         console.log(res.data);
     })
     .catch((err) => console.log(err));
-},[])
+},[setEventList])
 
 const endDate =(calEndData) =>{
     setEndDay({ ...endDay, end:calEndData })
@@ -85,12 +84,12 @@ const endDate =(calEndData) =>{
                     </div>
                     <div>
                         {errors.start && <span className="nes-text is-error nes-balloon from-left is-dark">{errors.start.message}</span>}
-                        <DatePicker placeholderText="Start Date" style={{ marginRight: "10px" }} selected={startDay.start} onChange={(start) =>{console.log(start); setStartDay({ ...startDay, start })}} />
+                        <DatePicker  placeholderText="Start Date" style={{ marginRight: "10px" }} selected={startDay.start} onChange={(start) =>{console.log(start); setStartDay({ ...startDay, start })}} />
                         {errors.end && <span className="nes-text is-error nes-balloon from-left is-dark">{errors.end.message}</span>}
                         <DatePicker placeholderText="End Date" selected={endDay.end} onChange={(end) =>  endDate(end)} />
                     </div>
-                    <input type='submit' value='add the event'  onClick={submitHandler}/>
-                        <Link to={`/events/viewall`}>View all events</Link>
+                    <input className='nes-btn is-success' type='submit' value='add the event'  onClick={submitHandler}/>
+                        <Link className='nes-btn is-primary' to={`/events/viewall`}>View all events</Link>
                     
                 </div>
             </form>
