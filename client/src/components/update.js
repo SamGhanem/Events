@@ -58,20 +58,24 @@ const Update = (props) => {
                 <div>
                     <div>
                         {errors.title && <span className="nes-text is-error nes-balloon from-left is-dark">{errors.title.message}</span>}
-                        <input type="text"  style={{ width: "20%", marginRight: "10px" }} value={title} onChange={(e) => setTitle(e.target.value)} />
-                        <input type="text" placeholder={place.id} style={{ width: "20%", marginRight: "10px" }} value={place} onChange={(e) => setPlace(e.target.value)} />
+                        <input type="text" className='nes-input is-dark  nes-text is-error' style={{ width: "20%", marginRight: "10px" }} value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <input type="text" className='nes-input is-dark nes-text is-error' placeholder={place.id} style={{ width: "20%", marginRight: "10px" }} value={place} onChange={(e) => setPlace(e.target.value)} />
                     </div>
                     <div>
                         {errors.start && <span className="nes-text is-error nes-balloon from-left is-dark">{errors.start.message}</span>}
-                        <DatePicker placeholderText="Start Date" style={{ marginRight: "10px" }} selected={startDay.start} onChange={(start) =>{console.log(start); setStartDay({ ...startDay, start })}} />
+                        <DatePicker  placeholderText="Start Date" style={{ marginRight: "10px" }} selected={startDay.start} onChange={(start) =>{console.log(start); setStartDay({ ...startDay, start })}} />
                         {errors.end && <span className="nes-text is-error nes-balloon from-left is-dark">{errors.end.message}</span>}
                         <DatePicker  selected={endDay.end} onChange={(end) =>  endDate(end)} />
                     </div>
                     <input className='nes-btn is-success' type='submit' value='Edit event'/>
                     <Link className='nes-btn is-warning' to={`/events/viewall`}>View all events</Link>
                 </div>
-                    <Link className='nes-btn is-primary' to={`/`}>GO HOME</Link>
+                    <Link className='nes-btn  is-primary' to={`/`}>GO HOME</Link>
             </form>
+            <i class="nes-pokeball"></i>
+            <i class="nes-bulbasaur"></i>
+            <i class="nes-charmander"></i>
+            <i class="nes-squirtle"></i>
             </div>
         )
     

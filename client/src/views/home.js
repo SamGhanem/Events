@@ -79,8 +79,8 @@ const endDate =(calEndData) =>{
                 <div>
                     <div>
                         {errors.title && <span className="nes-text is-error nes-balloon from-left is-dark">{errors.title.message}</span>}
-                        <input type="text" placeholder="Add Title" style={{ width: "20%", marginRight: "10px" }} value={title} onChange={(e) => setTitle(e.target.value)} />
-                        <input type="text" placeholder="Add Place" style={{ width: "20%", marginRight: "10px" }} value={place} onChange={(e) => setPlace(e.target.value)} />
+                        <input type="text" className='nes-input is-dark' placeholder="Add Title" style={{ width: "20%", marginRight: "10px" }} value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <input type="text" className='nes-input is-dark' placeholder="Add Place" style={{ width: "20%", marginRight: "10px" }} value={place} onChange={(e) => setPlace(e.target.value)} />
                     </div>
                     <div>
                         {errors.start && <span className="nes-text is-error nes-balloon from-left is-dark">{errors.start.message}</span>}
@@ -92,6 +92,10 @@ const endDate =(calEndData) =>{
                         <Link className='nes-btn is-primary' to={`/events/viewall`}>View all events</Link>
                     
                 </div>
+                <i class="nes-mario"></i>
+                <i class="nes-ash"></i>
+                <i class="nes-mario"></i>
+                <i class="nes-ash"></i>
             </form>
             
             <Calendar
