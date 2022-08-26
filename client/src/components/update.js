@@ -72,10 +72,10 @@ const Update = (props) => {
                 </div>
                     <Link className='nes-btn  is-primary' to={`/`}>GO HOME</Link>
             </form>
-            <i class="nes-pokeball"></i>
-            <i class="nes-bulbasaur"></i>
-            <i class="nes-charmander"></i>
-            <i class="nes-squirtle"></i>
+            <i className="nes-pokeball"></i>
+            <i className="nes-bulbasaur"></i>
+            <i className="nes-charmander"></i>
+            <i className="nes-squirtle"></i>
             </div>
         )
     

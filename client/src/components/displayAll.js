@@ -24,12 +24,12 @@ const ViewList = (props) =>{
     console.log(eventList.length)
     return (
         <div className='nesstable'>
-            <i class="nes-logo"></i>
-            <i class="nes-jp-logo"></i>
-            <i class="snes-logo"></i>
-            <i class="snes-jp-logo"></i>
-            {eventList.length ? <div class="nes-table-responsive ">
-                <table class=" nes-table nes-text is-error is-bordered is-centered is-dark">
+            <i className="nes-logo"></i>
+            <i className="nes-jp-logo"></i>
+            <i className="snes-logo"></i>
+            <i className="snes-jp-logo"></i>
+            {eventList.length ? <div className="nes-table-responsive ">
+                <table className=" nes-table nes-text is-error is-bordered is-centered is-dark">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -56,10 +56,10 @@ const ViewList = (props) =>{
             <div className="nes-container is-rounded is-dark">
                 <h2>No events scheduled as of now</h2> <Link className='nes-btn is-primary' to={`/`}>GO HOME</Link>
             </div>}
-            <i class="nes-kirby"></i>
-            <i class="nes-octocat animate"></i>
-            <i class="nes-kirby"></i>
-            <i class="nes-octocat animate"></i>
+            <i className="nes-kirby"></i>
+            <i className="nes-octocat animate"></i>
+            <i className="nes-kirby"></i>
+            <i className="nes-octocat animate"></i>
         </div>
 )
 }
